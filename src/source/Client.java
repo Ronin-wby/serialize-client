@@ -11,7 +11,9 @@ public class Client {
 	public static void main(String[] args) {
 
 		int port = 8888; // 定义端口
-		byte[] buf = new byte[1024];// 存储发来的消息
+		// Peter: 这个buffer太小，从1024改为10240
+		byte[] buf = new byte[10240];// 存储发来的消息
+		//byte[] buf = new byte[1024];// 存储发来的消息
 		
 		while (true) {
 			try {
@@ -21,14 +23,21 @@ public class Client {
                 ds.receive(dp);
                 ds.close();
                 
-                buf = dp.getData();
+                // Peter: Begin
+		byte[] data = new byte[dp.getLength()];
+		data = Arrays.copyOf(dp.getData(), dp.getLength());
+                //buf = dp.getData();
+	        // Peter: End
 //              int len = buf.length;              
 //              String msg = new String(buf, 0, len);
 //
 //              System.out.println("接受到广播消息："+msg);
 //              sbuf.delete(0, sbuf.length());
               
-              Demo mydemo = deserialize(buf);
+	        // Peter: Begin
+		Demo mydemo = deserialize(data);
+                //Demo mydemo = deserialize(buf);
+		// Peter: End
 //                JSONArray array = new JSONArray(myData.getfileContent());
 //                System.out.println(array);
 //        		System.out.println("-------end4------");
