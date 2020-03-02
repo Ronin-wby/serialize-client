@@ -36,38 +36,29 @@ public final class DemoSerializer {
         getFileNameBytes();
 
     /**
-     * <code>required string sendDate = 2;</code>
-     * @return Whether the sendDate field is set.
+     * <code>repeated string fileContent = 2;</code>
+     * @return A list containing the fileContent.
      */
-    boolean hasSendDate();
+    java.util.List<java.lang.String>
+        getFileContentList();
     /**
-     * <code>required string sendDate = 2;</code>
-     * @return The sendDate.
+     * <code>repeated string fileContent = 2;</code>
+     * @return The count of fileContent.
      */
-    java.lang.String getSendDate();
+    int getFileContentCount();
     /**
-     * <code>required string sendDate = 2;</code>
-     * @return The bytes for sendDate.
+     * <code>repeated string fileContent = 2;</code>
+     * @param index The index of the element to return.
+     * @return The fileContent at the given index.
+     */
+    java.lang.String getFileContent(int index);
+    /**
+     * <code>repeated string fileContent = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the fileContent at the given index.
      */
     com.google.protobuf.ByteString
-        getSendDateBytes();
-
-    /**
-     * <code>required string fileContent = 3;</code>
-     * @return Whether the fileContent field is set.
-     */
-    boolean hasFileContent();
-    /**
-     * <code>required string fileContent = 3;</code>
-     * @return The fileContent.
-     */
-    java.lang.String getFileContent();
-    /**
-     * <code>required string fileContent = 3;</code>
-     * @return The bytes for fileContent.
-     */
-    com.google.protobuf.ByteString
-        getFileContentBytes();
+        getFileContentBytes(int index);
   }
   /**
    * Protobuf type {@code Demo}
@@ -83,8 +74,7 @@ public final class DemoSerializer {
     }
     private Demo() {
       fileName_ = "";
-      sendDate_ = "";
-      fileContent_ = "";
+      fileContent_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -126,14 +116,11 @@ public final class DemoSerializer {
             }
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              sendDate_ = bs;
-              break;
-            }
-            case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000004;
-              fileContent_ = bs;
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                fileContent_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              fileContent_.add(bs);
               break;
             }
             default: {
@@ -151,6 +138,9 @@ public final class DemoSerializer {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          fileContent_ = fileContent_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -214,94 +204,39 @@ public final class DemoSerializer {
       }
     }
 
-    public static final int SENDDATE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object sendDate_;
+    public static final int FILECONTENT_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList fileContent_;
     /**
-     * <code>required string sendDate = 2;</code>
-     * @return Whether the sendDate field is set.
+     * <code>repeated string fileContent = 2;</code>
+     * @return A list containing the fileContent.
      */
-    public boolean hasSendDate() {
-      return ((bitField0_ & 0x00000002) != 0);
+    public com.google.protobuf.ProtocolStringList
+        getFileContentList() {
+      return fileContent_;
     }
     /**
-     * <code>required string sendDate = 2;</code>
-     * @return The sendDate.
+     * <code>repeated string fileContent = 2;</code>
+     * @return The count of fileContent.
      */
-    public java.lang.String getSendDate() {
-      java.lang.Object ref = sendDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          sendDate_ = s;
-        }
-        return s;
-      }
+    public int getFileContentCount() {
+      return fileContent_.size();
     }
     /**
-     * <code>required string sendDate = 2;</code>
-     * @return The bytes for sendDate.
+     * <code>repeated string fileContent = 2;</code>
+     * @param index The index of the element to return.
+     * @return The fileContent at the given index.
+     */
+    public java.lang.String getFileContent(int index) {
+      return fileContent_.get(index);
+    }
+    /**
+     * <code>repeated string fileContent = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the fileContent at the given index.
      */
     public com.google.protobuf.ByteString
-        getSendDateBytes() {
-      java.lang.Object ref = sendDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        sendDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int FILECONTENT_FIELD_NUMBER = 3;
-    private volatile java.lang.Object fileContent_;
-    /**
-     * <code>required string fileContent = 3;</code>
-     * @return Whether the fileContent field is set.
-     */
-    public boolean hasFileContent() {
-      return ((bitField0_ & 0x00000004) != 0);
-    }
-    /**
-     * <code>required string fileContent = 3;</code>
-     * @return The fileContent.
-     */
-    public java.lang.String getFileContent() {
-      java.lang.Object ref = fileContent_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          fileContent_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string fileContent = 3;</code>
-     * @return The bytes for fileContent.
-     */
-    public com.google.protobuf.ByteString
-        getFileContentBytes() {
-      java.lang.Object ref = fileContent_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        fileContent_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getFileContentBytes(int index) {
+      return fileContent_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -315,14 +250,6 @@ public final class DemoSerializer {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasSendDate()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasFileContent()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -333,11 +260,8 @@ public final class DemoSerializer {
       if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fileName_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sendDate_);
-      }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fileContent_);
+      for (int i = 0; i < fileContent_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fileContent_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -351,11 +275,13 @@ public final class DemoSerializer {
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fileName_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sendDate_);
-      }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fileContent_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < fileContent_.size(); i++) {
+          dataSize += computeStringSizeNoTag(fileContent_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getFileContentList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -377,16 +303,8 @@ public final class DemoSerializer {
         if (!getFileName()
             .equals(other.getFileName())) return false;
       }
-      if (hasSendDate() != other.hasSendDate()) return false;
-      if (hasSendDate()) {
-        if (!getSendDate()
-            .equals(other.getSendDate())) return false;
-      }
-      if (hasFileContent() != other.hasFileContent()) return false;
-      if (hasFileContent()) {
-        if (!getFileContent()
-            .equals(other.getFileContent())) return false;
-      }
+      if (!getFileContentList()
+          .equals(other.getFileContentList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -402,13 +320,9 @@ public final class DemoSerializer {
         hash = (37 * hash) + FILENAME_FIELD_NUMBER;
         hash = (53 * hash) + getFileName().hashCode();
       }
-      if (hasSendDate()) {
-        hash = (37 * hash) + SENDDATE_FIELD_NUMBER;
-        hash = (53 * hash) + getSendDate().hashCode();
-      }
-      if (hasFileContent()) {
+      if (getFileContentCount() > 0) {
         hash = (37 * hash) + FILECONTENT_FIELD_NUMBER;
-        hash = (53 * hash) + getFileContent().hashCode();
+        hash = (53 * hash) + getFileContentList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -545,10 +459,8 @@ public final class DemoSerializer {
         super.clear();
         fileName_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        sendDate_ = "";
+        fileContent_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
-        fileContent_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -581,12 +493,9 @@ public final class DemoSerializer {
           to_bitField0_ |= 0x00000001;
         }
         result.fileName_ = fileName_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.sendDate_ = sendDate_;
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          to_bitField0_ |= 0x00000004;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          fileContent_ = fileContent_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.fileContent_ = fileContent_;
         result.bitField0_ = to_bitField0_;
@@ -643,14 +552,14 @@ public final class DemoSerializer {
           fileName_ = other.fileName_;
           onChanged();
         }
-        if (other.hasSendDate()) {
-          bitField0_ |= 0x00000002;
-          sendDate_ = other.sendDate_;
-          onChanged();
-        }
-        if (other.hasFileContent()) {
-          bitField0_ |= 0x00000004;
-          fileContent_ = other.fileContent_;
+        if (!other.fileContent_.isEmpty()) {
+          if (fileContent_.isEmpty()) {
+            fileContent_ = other.fileContent_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureFileContentIsMutable();
+            fileContent_.addAll(other.fileContent_);
+          }
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -661,12 +570,6 @@ public final class DemoSerializer {
       @java.lang.Override
       public final boolean isInitialized() {
         if (!hasFileName()) {
-          return false;
-        }
-        if (!hasSendDate()) {
-          return false;
-        }
-        if (!hasFileContent()) {
           return false;
         }
         return true;
@@ -776,170 +679,111 @@ public final class DemoSerializer {
         return this;
       }
 
-      private java.lang.Object sendDate_ = "";
-      /**
-       * <code>required string sendDate = 2;</code>
-       * @return Whether the sendDate field is set.
-       */
-      public boolean hasSendDate() {
-        return ((bitField0_ & 0x00000002) != 0);
+      private com.google.protobuf.LazyStringList fileContent_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFileContentIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          fileContent_ = new com.google.protobuf.LazyStringArrayList(fileContent_);
+          bitField0_ |= 0x00000002;
+         }
       }
       /**
-       * <code>required string sendDate = 2;</code>
-       * @return The sendDate.
+       * <code>repeated string fileContent = 2;</code>
+       * @return A list containing the fileContent.
        */
-      public java.lang.String getSendDate() {
-        java.lang.Object ref = sendDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            sendDate_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public com.google.protobuf.ProtocolStringList
+          getFileContentList() {
+        return fileContent_.getUnmodifiableView();
       }
       /**
-       * <code>required string sendDate = 2;</code>
-       * @return The bytes for sendDate.
+       * <code>repeated string fileContent = 2;</code>
+       * @return The count of fileContent.
        */
-      public com.google.protobuf.ByteString
-          getSendDateBytes() {
-        java.lang.Object ref = sendDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          sendDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public int getFileContentCount() {
+        return fileContent_.size();
       }
       /**
-       * <code>required string sendDate = 2;</code>
-       * @param value The sendDate to set.
-       * @return This builder for chaining.
+       * <code>repeated string fileContent = 2;</code>
+       * @param index The index of the element to return.
+       * @return The fileContent at the given index.
        */
-      public Builder setSendDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        sendDate_ = value;
-        onChanged();
-        return this;
+      public java.lang.String getFileContent(int index) {
+        return fileContent_.get(index);
       }
       /**
-       * <code>required string sendDate = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSendDate() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        sendDate_ = getDefaultInstance().getSendDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string sendDate = 2;</code>
-       * @param value The bytes for sendDate to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSendDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        sendDate_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object fileContent_ = "";
-      /**
-       * <code>required string fileContent = 3;</code>
-       * @return Whether the fileContent field is set.
-       */
-      public boolean hasFileContent() {
-        return ((bitField0_ & 0x00000004) != 0);
-      }
-      /**
-       * <code>required string fileContent = 3;</code>
-       * @return The fileContent.
-       */
-      public java.lang.String getFileContent() {
-        java.lang.Object ref = fileContent_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            fileContent_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string fileContent = 3;</code>
-       * @return The bytes for fileContent.
+       * <code>repeated string fileContent = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the fileContent at the given index.
        */
       public com.google.protobuf.ByteString
-          getFileContentBytes() {
-        java.lang.Object ref = fileContent_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          fileContent_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getFileContentBytes(int index) {
+        return fileContent_.getByteString(index);
       }
       /**
-       * <code>required string fileContent = 3;</code>
+       * <code>repeated string fileContent = 2;</code>
+       * @param index The index to set the value at.
        * @param value The fileContent to set.
        * @return This builder for chaining.
        */
       public Builder setFileContent(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFileContentIsMutable();
+        fileContent_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string fileContent = 2;</code>
+       * @param value The fileContent to add.
+       * @return This builder for chaining.
+       */
+      public Builder addFileContent(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
-        fileContent_ = value;
+  ensureFileContentIsMutable();
+        fileContent_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>required string fileContent = 3;</code>
+       * <code>repeated string fileContent = 2;</code>
+       * @param values The fileContent to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllFileContent(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureFileContentIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, fileContent_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string fileContent = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearFileContent() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        fileContent_ = getDefaultInstance().getFileContent();
+        fileContent_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
-       * <code>required string fileContent = 3;</code>
-       * @param value The bytes for fileContent to set.
+       * <code>repeated string fileContent = 2;</code>
+       * @param value The bytes of the fileContent to add.
        * @return This builder for chaining.
        */
-      public Builder setFileContentBytes(
+      public Builder addFileContentBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
-        fileContent_ = value;
+  ensureFileContentIsMutable();
+        fileContent_.add(value);
         onChanged();
         return this;
       }
@@ -1010,9 +854,9 @@ public final class DemoSerializer {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\ndemo.proto\"?\n\004Demo\022\020\n\010fileName\030\001 \002(\t\022\020" +
-      "\n\010sendDate\030\002 \002(\t\022\023\n\013fileContent\030\003 \002(\tB\030\n" +
-      "\006sourceB\016DemoSerializer"
+      "\n\ndemo.proto\"-\n\004Demo\022\020\n\010fileName\030\001 \002(\t\022\023" +
+      "\n\013fileContent\030\002 \003(\tB\030\n\006sourceB\016DemoSeria" +
+      "lizer"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1023,7 +867,7 @@ public final class DemoSerializer {
     internal_static_Demo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Demo_descriptor,
-        new java.lang.String[] { "FileName", "SendDate", "FileContent", });
+        new java.lang.String[] { "FileName", "FileContent", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
